@@ -56,13 +56,13 @@ class Usuario{
             die("Falha na conexão com o Banco de Dados.");
         }
 
-        echo "<br><br>Conectado com o banco!";
+        //echo "<br><br>Conectado com o banco!";
         
         $sql = "INSERT INTO usuario VALUES ('$this->nome', '$this->email', '$this->senha')";
         if(mysqli_query($conexao, $sql)){
-            echo "<br><br>Usuário cadastrado com sucesso!";
+            //echo "<br><br>Usuário cadastrado com sucesso!";
         }else{
-            echo "Erro: ".mysqli_error($conexao);
+            //echo "Erro: ".mysqli_error($conexao);
         }
         mysqli_close($conexao);
     }

@@ -36,5 +36,6 @@ function validarCampos(event) {
     email.classList.remove("erro");
     senha.classList.remove("erro");
   }
+  //document.getElementById("cadastrro").action = "../assets/php/recebe-cadastro-usuario.php";
   window.location.href = "./questao.html";
 }
