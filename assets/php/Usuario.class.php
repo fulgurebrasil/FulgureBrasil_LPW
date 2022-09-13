@@ -67,3 +67,5 @@ class Usuario{
         mysqli_close($conexao);
     }
 
+}
+
