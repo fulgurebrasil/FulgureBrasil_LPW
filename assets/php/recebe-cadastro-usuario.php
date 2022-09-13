@@ -6,8 +6,8 @@
    $email = $_POST["email"];
    $senha = $_POST["senha"];
 
-   $objetoDisciplina = new Disciplina($nome, $email, $senha);   
-   $objetoDisciplina->exibirDados();
+   $objetoUsuario = new Usuario($nome, $email, $senha);   
+   $objetoUsuario->exibirDados();
    //$objetoDisciplina->cadastrarUsuario();
 
    echo "çaça";
