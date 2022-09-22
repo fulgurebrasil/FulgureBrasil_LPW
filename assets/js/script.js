@@ -7,8 +7,7 @@ function toggleMenu() {
   }
 }
 
-function validarCampos(event) {
-  event.preventDefault();
+function validarCampos(form) {
   var nome = document.forms["cadastro"]["nome"];
   var email = document.forms["cadastro"]["email"];
   var senha = document.forms["cadastro"]["senha"];
@@ -35,7 +34,7 @@ function validarCampos(event) {
     nome.classList.remove("erro");
     email.classList.remove("erro");
     senha.classList.remove("erro");
+    form.submit();
   }
-  //var usuario = document.getElementById("cadastro").action = "../assets/php/recebe-cadastro-usuario.php";
-  window.location.href = "./questao.html";
+  
 }

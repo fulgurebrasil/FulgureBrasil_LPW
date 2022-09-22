@@ -51,8 +51,6 @@ class Usuario{
         echo "O email do ". __CLASS__ ." é ". $this->email;
         echo "<br />";
         echo "A senha do ".__CLASS__." é ". $this->senha;
-        echo "<br />";
-        echo "O ID do ".__CLASS__." é ". $this->id;
     }
 
     public function cadastrarUsuario()
@@ -76,6 +74,7 @@ class Usuario{
             echo "Erro: ".mysqli_error($conexao);
         }
         mysqli_close($conexao);
+        echo "<script> window.location.href = '../../pages/questao.html'; </script>";
     }
 
 }
