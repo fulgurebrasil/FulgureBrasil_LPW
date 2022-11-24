@@ -1,6 +1,7 @@
 <?php
-    $nome = $_GET["nome"];
+    $id = $_GET["id"];
+    require_once "Usuario.class.php";
     $objeto = new Usuario();
-    $objeto->excluirUsuario($nome);
+    $objeto->excluirUsuario($id);
     header("Location: todosUsuarios.php");
 ?>

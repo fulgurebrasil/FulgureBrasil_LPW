@@ -1,6 +1,6 @@
 <?php
 
-    require_once("Usuario.class.php");
+    require_once "Usuario.class.php";
 
     $nome = $_POST["nome"];
     $email = $_POST["email"];

@@ -12,10 +12,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
-            function confirmarExclusao(nome){
-                var resp = window.confirm("Tem certeza que deseja excluir "+nome+"?");
+            function confirmarExclusao(id){
+                var resp = window.confirm("Tem certeza que deseja excluir "+id+"?");
                 if(resp){
-                    window.location.href="recebeExclusaoUsuario.php?nome="+nome;
+                    window.location.href="recebeExclusaoUsuario.php?id="+id;
                 }
             }
     </script>
@@ -54,9 +54,9 @@
                     //echo "<td><a href='atualizar-usuario.php?nome={$dc["nome"]}&email={$dc["email"]}&senha={$dc["senha"]}'>
                     //Editar</a> | Excluir</td>";
                     echo "<td class = 'ex'>
-                    <a href='javascript:func()' onclick='confirmarExclusao(\"{$dc["nome"]}\")'> Excluir</a>                    
+                    <a href='javascript:func()' onclick='confirmarExclusao(\"{$dc["id"]}\")'> Excluir</a>                    
                     || 
-                    <a href='atualizarUsuario.php?nome={$dc["nome"]}&email={$dc["email"]}&senha={$dc["senha"]}'> Editar </a>
+                    <a href='atualizarUsuario.php?id={$dc["id"]}&nome={$dc["nome"]}&email={$dc["email"]}&senha={$dc["senha"]}'> Editar </a>
                     </td>";
                     echo "</tr>";
                 }

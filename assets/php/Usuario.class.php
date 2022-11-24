@@ -88,7 +88,7 @@
         public function atualizarUsuario(){
             $cn = new Conexao();
             $conexaoBanco = $cn->getInstance();
-            $stmt = $conexaoBanco->prepare("UPDATE usuario SET nome = ':novoNome', email = ':novoEmail', senha = ':novaSenha' WHERE id = :id");
+            $stmt = $conexaoBanco->prepare("UPDATE usuario SET nome = :novoNome, email = :novoEmail, senha = :novaSenha WHERE id = :id");
             $stmt->bindParam(':novoNome', $this->nome);
             $stmt->bindParam(':novoEmail', $this->email);
             $stmt->bindParam(':novaSenha', $this->senha);
@@ -108,7 +108,7 @@
             $cn = new Conexao();
             $conexaoBanco = $cn->getInstance();
             
-            $stmt=$conexaoBanco->prepare("DELETE FROM usuario WHERE id = ':id'");
+            $stmt=$conexaoBanco->prepare("DELETE FROM usuario WHERE id = :id");
             
             $stmt->bindParam(":id", $id);
             $resultado = $stmt->execute();
