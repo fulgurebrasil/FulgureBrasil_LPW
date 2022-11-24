@@ -55,31 +55,6 @@
             echo "A senha do ".__CLASS__." é ". $this->senha;
         }
 
-        // public function cadastrarUsuario()
-        // {
-            
-        //     //Conexão com o Banco de Dados
-            
-        //     $conexao = mysqli_connect("localhost","root","", "cadastro");
-            
-        //     //Verificar a conexão
-
-        //     if(!$conexao){
-        //         die("Falha na conexão com o Banco de Dados.");
-        //     }
-
-        //     echo "<br><br>Conectado com o banco!";
-            
-        //     $sql = "INSERT INTO usuario VALUES ('$this->id','$this->nome', '$this->email', '$this->senha')";
-        //     if(mysqli_query($conexao, $sql)){
-        //         echo "<br><br>Usuário cadastrado com sucesso!";
-        //     }else{
-        //         echo "Erro: ".mysqli_error($conexao);
-        //     }
-        //     mysqli_close($conexao);
-        //     echo "<script> window.location.href = '../../pages/questao.html'; </script>";
-        // }
-
         public function inserirUsuario(){
 
             $cn = new Conexao();
@@ -98,7 +73,7 @@
                 exit;
             }
             echo "Usuário inserido com sucesso!";
-            echo "<script> window.location.href = '../../pages/questao.html'; </script>";
+            echo "<script> window.location.href = '../../pages/inicial.html'; </script>";
         }
 
         public function buscarTodosUsuarios(){
@@ -110,17 +85,14 @@
             return $resultado;
         }
 
-        public function atualizarusuario(){
+        public function atualizarUsuario(){
             $cn = new Conexao();
             $conexaoBanco = $cn->getInstance();
-            $stmt = $conexaoBanco->prepare("UPDATE usuario SET
-                                            nome = :novoNome,
-                                            email = :novoEmail,
-                                            senha = :novaSenha
-                                            WHERE id = :id");
-            $stmt->bindParam(":novoEmail",$this->email);
-            $stmt->bindParam(":novaSenha", $this->senha);
-            $stmt->bindParam(":novoNome", $this->nome);
+            $stmt = $conexaoBanco->prepare("UPDATE usuario SET nome = ':novoNome', email = ':novoEmail', senha = ':novaSenha' WHERE id = :id");
+            $stmt->bindParam(':novoNome', $this->nome);
+            $stmt->bindParam(':novoEmail', $this->email);
+            $stmt->bindParam(':novaSenha', $this->senha);
+            $stmt->bindParam(":id", $this->id);
 
             $resultado = $stmt->execute();
 
@@ -129,6 +101,22 @@
                 exit;
             }
             echo "Usuário atualizado com sucesso.";
+            echo "<script> window.location.href = './todosUsuarios.php'; </script>";
+        }
+
+        public function excluirUsuario($id){
+            $cn = new Conexao();
+            $conexaoBanco = $cn->getInstance();
+            
+            $stmt=$conexaoBanco->prepare("DELETE FROM usuario WHERE id = ':id'");
+            
+            $stmt->bindParam(":id", $id);
+            $resultado = $stmt->execute();
+            if(!$resultado){
+                echo "Não foi possível excluir o usuário.";
+                exit;
+            }
+            echo "Usuário excluído com sucesso";
         }
     }
 

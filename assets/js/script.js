@@ -14,7 +14,6 @@ function validarCampos(form) {
   var termos = document.forms["cadastro"]["termos"];
   var mensagem = document.getElementById("mensagem");
 
-
   if (nome.value == "") {
     nome.classList.add("erro");
     mensagem.innerHTML = "Preencha o nome.";
